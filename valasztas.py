@@ -8,4 +8,8 @@ with open("szavazatok.txt", "r", encoding="utf-8") as file:
         szavazatok.append([int(szavazat[0]), int(szavazat[1]), str(szavazat[2]), str(szavazat[3]), str(szavazat[4])])
 print(szavazatok)
 
+print("\n2. feladat:")
+
+print(f"A helyhatósági választáson {len(szavazatok)} képviselőjelölt indult.")
+
 
