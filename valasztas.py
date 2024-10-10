@@ -12,4 +12,19 @@ print("\n2. feladat:")
 
 print(f"A helyhatósági választáson {len(szavazatok)} képviselőjelölt indult.")
 
+print("\n3. feladat:")
+v_nev = input("Kérek egy vezetéknevet: ")
+k_nev = input("Kérek egy keresztnevet: ")
+
+van = False # nincs ilyen
+for szavazat in szavazatok:
+    if v_nev == szavazat[2] and k_nev == szavazat[3]:
+        print(szavazat[1])
+        van = True # van ilyen
+
+if not van: # nincs ilyen, TEHÁT a van == False
+    print("Ilyen nevű képviselőjelölt nem szerepel a nyilvántartásban!")
+# if van: # van == True
+#     print("van ilyen")
+
 
