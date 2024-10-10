@@ -27,4 +27,4 @@ if not van: # nincs ilyen, TEHÁT a van == False
 # if van: # van == True
 #     print("van ilyen")
 
-
+# HF 4. FELADAT ÉS 3. FELADATOT MEGFORMÁLNI round()
