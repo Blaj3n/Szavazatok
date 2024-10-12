@@ -16,10 +16,10 @@ print("\n3. feladat:")
 v_nev = input("Kérek egy vezetéknevet: ")
 k_nev = input("Kérek egy keresztnevet: ")
 
-van = False # nincs ilyen
+van = False  # nincs ilyen
 for szavazat in szavazatok:
     if v_nev == szavazat[2] and k_nev == szavazat[3]:
-        print(szavazat[1])
+        print(f"{v_nev} {k_nev} {szavazat[1]} szavazatot kapott.")
         van = True # van ilyen
 
 if not van: # nincs ilyen, TEHÁT a van == False
