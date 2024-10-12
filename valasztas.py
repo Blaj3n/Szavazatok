@@ -13,8 +13,8 @@ print("\n2. feladat:")
 print(f"A helyhatósági választáson {len(szavazatok)} képviselőjelölt indult.")
 
 print("\n3. feladat:")
-v_nev = input("Kérek egy vezetéknevet: ")
-k_nev = input("Kérek egy keresztnevet: ")
+v_nev = "Hold"  # input("Kérek egy vezetéknevet: ")
+k_nev = "Ferenc"  # input("Kérek egy keresztnevet: ")
 
 van = False  # nincs ilyen
 for szavazat in szavazatok:
@@ -27,4 +27,16 @@ if not van: # nincs ilyen, TEHÁT a van == False
 # if van: # van == True
 #     print("van ilyen")
 
+print("")
 # HF 4. FELADAT ÉS 3. FELADATOT MEGFORMÁLNI round()
+
+print("4. feladat:")
+
+szavazasra_jog = 12345
+
+osszes_szavazat = 0
+for szavazat in szavazatok:
+    osszes_szavazat += szavazat[1]
+arany = (osszes_szavazat / szavazasra_jog) * 100
+print(f"A választáson {osszes_szavazat} állampolgár, a jogosultak {round(arany, 2)}%-a vett részt.")
+
