@@ -48,16 +48,16 @@ ZEP_szamlalo = 0
 HEP_szamlalo = 0
 TISZ_szamlalo = 0
 for szavazat in szavazatok:
-    if szavazat[4] == "-":
-        fuggetlen_szamlalo += szavazat[1]
-    elif szavazat[4] == "GYEP":
+    if szavazat[4] == "GYEP":
         GYEP_szamlalo += szavazat[1]
-    elif szavazat[4] == "ZEP":
-        ZEP_szamlalo += szavazat[1]
     elif szavazat[4] == "HEP":
         HEP_szamlalo += szavazat[1]
-    else:
+    elif szavazat[4] == "TISZ":
         TISZ_szamlalo += szavazat[1]
+    elif szavazat[4] == "ZEP":
+        ZEP_szamlalo += szavazat[1]
+    else:
+        fuggetlen_szamlalo += szavazat[1]
 print(f"Gyümölcsevők Pártja = {round(szavazasra_jog / GYEP_szamlalo, 2)}%")
 print(f"Húsevők Pártja = {round(szavazasra_jog / HEP_szamlalo, 2)}%")
 print(f"Tejivók Szövetsége = {round(szavazasra_jog / TISZ_szamlalo, 2)}%")
@@ -75,3 +75,13 @@ for jelolt in legnagyobb_jeloltek:
 # else:
 #     print(f"A jelölt neve: {jelolt[2]} {jelolt[3]}, Szavazatok száma: {jelolt[1]}, Független")
 
+print("")
+
+print("7. feladat:")
+
+with open("kepviselok.txt", "w", encoding="utf-8") as fajl:
+    lista_1 = []
+    for szavazat in szavazatok:
+        if szavazat[0] == 1 and max(szavazat[1]):
+            lista_1.append(szavazatok[2] + szavazatok[3])
+print(lista_1)
