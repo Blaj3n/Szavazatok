@@ -40,3 +40,38 @@ for szavazat in szavazatok:
 arany = (osszes_szavazat / szavazasra_jog) * 100
 print(f"A választáson {osszes_szavazat} állampolgár, a jogosultak {round(arany, 2)}%-a vett részt.")
 
+print("")
+
+print("5. feladat: ")
+fuggetlen_szamlalo = 0
+GYEP_szamlalo = 0
+ZEP_szamlalo = 0
+HEP_szamlalo = 0
+TISZ_szamlalo = 0
+for szavazat in szavazatok:
+    if szavazat[4] == "-":
+        fuggetlen_szamlalo += szavazat[1]
+    elif szavazat[4] == "GYEP":
+        GYEP_szamlalo += szavazat[1]
+    elif szavazat[4] == "ZEP":
+        ZEP_szamlalo += szavazat[1]
+    elif szavazat[4] == "HEP":
+        HEP_szamlalo += szavazat[1]
+    else:
+        TISZ_szamlalo += szavazat[1]
+print(f"Gyümölcsevők Pártja = {round(szavazasra_jog / GYEP_szamlalo, 2)}%")
+print(f"Húsevők Pártja = {round(szavazasra_jog / HEP_szamlalo, 2)}%")
+print(f"Tejivók Szövetsége = {round(szavazasra_jog / TISZ_szamlalo, 2)}%")
+print(f"Zöldségevők Pártja= {round(szavazasra_jog / ZEP_szamlalo, 2)}%")
+print(f"Független jelöltek = {round(szavazasra_jog / fuggetlen_szamlalo, 2)}%")
+
+
+'''
+Határozza meg és írassa ki a képernyőre az egyes pártokra leadott szavazatok arányát 
+az összes leadott szavazathoz képest két tizedesjegy pontossággal! A független jelölteket 
+együtt, „Független jelöltek” néven szerepeltesse!
+Zöldségevők Pártja= 12,34% 
+Független jelöltek= 23,40%
+'''
+
+
