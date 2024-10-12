@@ -1,6 +1,5 @@
-#print("1. feladat")
+# print("1. feladat")
 szavazatok = []
-
 
 with open("szavazatok.txt", "r", encoding="utf-8") as file:
     for szavazat in file:
@@ -20,9 +19,9 @@ van = False  # nincs ilyen
 for szavazat in szavazatok:
     if v_nev == szavazat[2] and k_nev == szavazat[3]:
         print(f"{v_nev} {k_nev} {szavazat[1]} szavazatot kapott.")
-        van = True # van ilyen
+        van = True  # van ilyen
 
-if not van: # nincs ilyen, TEHÁT a van == False
+if not van:  # nincs ilyen, TEHÁT a van == False
     print("Ilyen nevű képviselőjelölt nem szerepel a nyilvántartásban!")
 # if van: # van == True
 #     print("van ilyen")
@@ -65,13 +64,14 @@ print(f"Tejivók Szövetsége = {round(szavazasra_jog / TISZ_szamlalo, 2)}%")
 print(f"Zöldségevők Pártja= {round(szavazasra_jog / ZEP_szamlalo, 2)}%")
 print(f"Független jelöltek = {round(szavazasra_jog / fuggetlen_szamlalo, 2)}%")
 
+print("")
 
-'''
-Határozza meg és írassa ki a képernyőre az egyes pártokra leadott szavazatok arányát 
-az összes leadott szavazathoz képest két tizedesjegy pontossággal! A független jelölteket 
-együtt, „Független jelöltek” néven szerepeltesse!
-Zöldségevők Pártja= 12,34% 
-Független jelöltek= 23,40%
-'''
+print("6. feladat: ")
+legtobb_szavazat = max(szavazat[1] for szavazat in szavazatok)
+legnagyobb_jeloltek = [szavazat for szavazat in szavazatok if szavazat[1] == legtobb_szavazat]
 
+for jelolt in legnagyobb_jeloltek:
+    print(f"A jelölt neve: {jelolt[2]} {jelolt[3]}, Szavazatok száma: {jelolt[1]}, Párt: {jelolt[4]}")
+# else:
+#     print(f"A jelölt neve: {jelolt[2]} {jelolt[3]}, Szavazatok száma: {jelolt[1]}, Független")
 
