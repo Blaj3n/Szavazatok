@@ -71,17 +71,32 @@ legtobb_szavazat = max(szavazat[1] for szavazat in szavazatok)
 legnagyobb_jeloltek = [szavazat for szavazat in szavazatok if szavazat[1] == legtobb_szavazat]
 
 for jelolt in legnagyobb_jeloltek:
-    print(f"A jelölt neve: {jelolt[2]} {jelolt[3]}, Szavazatok száma: {jelolt[1]}, Párt: {jelolt[4]}")
-# else:
-#     print(f"A jelölt neve: {jelolt[2]} {jelolt[3]}, Szavazatok száma: {jelolt[1]}, Független")
+    if jelolt[4] != "-":
+        print(f"A jelölt neve: {jelolt[2]} {jelolt[3]}, Szavazatok száma: {jelolt[1]}, Párt: {jelolt[4]}")
+    else:
+        print(f"A jelölt neve: {jelolt[2]} {jelolt[3]}, Szavazatok száma: {jelolt[1]}, Párt: Független")
 
 print("")
 
-print("7. feladat:")
+# print("7. feladat:")
+korzetek = []
+for szavazat in szavazatok:
+    if szavazat[0] not in korzetek:
+        korzetek.append(szavazat[0])
+# print(sorted(korzetek))
 
 with open("kepviselok.txt", "w", encoding="utf-8") as fajl:
-    lista_1 = []
-    for szavazat in szavazatok:
-        if szavazat[0] == 1 and max(szavazat[1]):
-            lista_1.append(szavazatok[2] + szavazatok[3])
-print(lista_1)
+
+    for korzet in sorted(korzetek): # korzet == 1
+        legnagyobb_szavazat = 0
+        legn_szav_lista = []
+        for szavazat in szavazatok:
+            if korzet == szavazat[0] and legnagyobb_szavazat < szavazat[1]:
+                legn_szav_lista = []
+                legnagyobb_szavazat = szavazat[1]
+                legn_szav_lista.append(szavazat)
+        if legn_szav_lista[0][4] != "-":
+            fajl.write(f"{legn_szav_lista[0][0]} {legn_szav_lista[0][2]} {legn_szav_lista[0][3]} {legn_szav_lista[0][4]}\n")
+        else:
+            fajl.write(f"{legn_szav_lista[0][0]} {legn_szav_lista[0][2]} {legn_szav_lista[0][3]} független\n")
+
